@@ -1,34 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useCallback, useEffect, useState } from 'react'
 import './App.css'
+import { IAnimal } from './models/IAnimal';
+// import { fetchAnimals } from './services/animalService';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [animalList, setAnimalList] = useState<IAnimal[]>(JSON.parse(localStorage.getItem("savedAnimalList")||JSON.stringify([])));
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+  useEffect(()=>{
+    fetch("https://animals.azurewebsites.net/api/animals")
+    .then(res=>res.json())
+    .then(setAnimalList)
+    .catch(console.error)
+    console.log(animalList)
+
+if(animalList.length!>1){
+  //   const fetchData = async ()=>{
+  //   const data = await fetch("https://animals.azurewebsites.net/api/animals");
+  //   const json = await data.json();
+  //   console.log(json)
+  //   setAnimalList(json)
+    localStorage.setItem("savedAnimalList",JSON.stringify(animalList))
+    console.log(animalList)
+  }else{localStorage.getItem("savedAnimalList")}
+  // } 
+  // let get = fetchAnimals()
+  // .catch(console.error)
+  
+  },[])
+
+
+  let animals;
+  
+  if (animalList!=undefined){
+    animals = animalList.map((animal)=>(
+    <article className='animal__wrapper' key={animal.id}>
+    <h2 className='animal__name'>{animal.name}</h2>
+    <img className='animal__img' src={animal.imageUrl} alt={animal.name} />
+    <i className='animal__name--latin'>{animal.latinName}</i>
+    <p className='animal__description--short'>{animal.shortDescription}</p></article>
+  ))}
+
+  return (     
+    <section>{animals}</section>
+        
   )
 }
 
