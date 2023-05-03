@@ -1,19 +1,17 @@
 .animal {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-
   &__wrapper {
-    width: 20%;
+    width: 11rem;
     min-height: min-content;
-    height: 20rem;
+    height: 22rem;
     border-radius: 1rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    color: aliceblue;
+    &:any-link {
+      text-decoration: none;
+      color: inherit;
+    }
 
     &--img {
       width: 100%;
@@ -23,13 +21,16 @@
     }
 
     &--text {
+      height: 60%;
       display: flex;
       flex-direction: column;
+      // justify-content: space-between;
     }
   }
 
   &__name {
     margin: 0 0 0.5rem 0;
+
     &--latin {
       font-style: italic;
       text-align: right;
@@ -48,6 +49,11 @@
       font-size: smaller;
       margin: 0;
     }
+  }
+  &__last-fed {
+    font-size: x-small;
+    color: grey;
+    margin: 0;
   }
 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./index.css";
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
@@ -8,6 +7,7 @@ import { Error } from "./pages/Error";
 import { Home } from "./pages/Home";
 import { Animals } from "./pages/Animals";
 import { AnimalInfo } from "./pages/AnimalInfo";
+import { zooLoader } from "./loaders/zooLoader";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -19,12 +19,13 @@ const router = createBrowserRouter([
     path: "/animals",
     element: <Animals></Animals>,
     errorElement: <Error></Error>,
-    children: [],
+    loader: zooLoader,
   },
   {
     path: "/animals/:id",
     element: <AnimalInfo></AnimalInfo>,
     errorElement: <Error></Error>,
+    loader: zooLoader,
   },
 ]);
 
