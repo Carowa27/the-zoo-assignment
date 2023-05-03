@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IAnimal } from "../../models/IAnimal";
 import "./animal.scss";
+import { FeedBtn } from "../FeedBtn/FeedBtn";
 
 export const Animal = ({
   id,
@@ -16,7 +17,7 @@ export const Animal = ({
 }: IAnimal) => {
   return (
     <>
-      <section className="animal">
+      <section className="animal-holder">
         <article className="animal__wrapper starved" key={id}>
           <h2 className="animal__name">{name}</h2>
           <div className="animal__wrapper--img">
@@ -31,11 +32,21 @@ export const Animal = ({
               }}
             />
           </div>
+          <p className="animal__wrapper--info-text">
+            <span>
+              <b>Medicine:</b> {medicine}
+            </span>
+            <span>
+              <b>Latin:</b> {latinName}
+            </span>
+          </p>
           <div className="animal__wrapper--text">
-            <i className="animal__name--latin">{latinName}</i>
-            <p className="animal__description--long">{longDescription}</p>
+            <p>{longDescription}</p>
           </div>
-          <p className="animal__last-fed">Last fed: {lastFed}</p>
+          <div className="animal__wrapper--feed-section">
+            <p className="animal__last-fed">{lastFed}</p>
+            <FeedBtn></FeedBtn>
+          </div>
         </article>
       </section>
     </>

@@ -15,11 +15,11 @@ export const AnimalCard = ({
 }: IAnimal) => {
   return (
     <>
-      <article className="animal__wrapper starved" key={id}>
-        <h2 className="animal__name">{name}</h2>
-        <div className="animal__wrapper--img">
+      <article className="animals__wrapper starved" key={id}>
+        <h3 className="animals__name">{name}</h3>
+        <div className="animals__wrapper--img">
           <img
-            className="animal__img"
+            className="animals__img"
             src={imageUrl}
             alt={name}
             onError={(e) => {
@@ -29,11 +29,7 @@ export const AnimalCard = ({
             }}
           />
         </div>
-        <div className="animal__wrapper--text">
-          <i className="animal__name--latin">{latinName}</i>
-          <p className="animal__description--short">{shortDescription}</p>
-        </div>
-        <p className="animal__last-fed">Last fed: {lastFed}</p>
+        <p className="animals__description--short">{shortDescription}</p>
       </article>
     </>
   );
