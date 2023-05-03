@@ -8,7 +8,7 @@ export const AnimalInfo = () => {
   const { animals } = useLoaderData() as Loader;
   const paramsToNum = Number(params.id);
 
-  const clickedAnimal = animals.find((animal) => (animal.id = paramsToNum));
+  const clickedAnimal = animals.find((animal) => animal.id === paramsToNum);
   console.log(params);
   if (clickedAnimal === undefined) {
     return (
