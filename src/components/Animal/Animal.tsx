@@ -19,7 +19,7 @@ export const Animal = ({
     JSON.parse(localStorage.getItem("savedAnimalList") || JSON.stringify([]))
   );
   const feedAnimal = (id: number) => {
-    //ta in lista?
+    //ta in lista
     let newAnimalList = [...allAnimals];
     console.log(newAnimalList);
     for (let i = 0; i < newAnimalList.length; i++) {
@@ -32,9 +32,8 @@ export const Animal = ({
           console.log("Already fed");
         } else {
           //isFed till true
-          // if isFed === true src="https://t3.ftcdn.net/jpg/05/79/76/38/240_F_579763809_uA12B04c528MmOE9eeVRQABvUOZz9Sei.png"
-          //uppdatera tid
           newAnimalList[i].isFed = true;
+          //uppdatera tid
           console.log("update time");
           setAllAnimals(newAnimalList);
           console.log(allAnimals);
