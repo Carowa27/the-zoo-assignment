@@ -16,7 +16,9 @@ export const AnimalCard = ({
   return (
     <>
       <article
-        className={isFed ? "animals__wrapper satisfied" : "animals__wrapper"}
+        className={
+          isFed ? "animals__wrapper satisfied" : "animals__wrapper hungry"
+        }
         key={id}
       >
         <h3 className="animals__name">{name}</h3>

@@ -45,6 +45,13 @@
   }
   &__img {
     height: 100%;
+    &.hungry {
+      border: 10px solid rgba(255, 72, 0, 0.248);
+    }
+
+    &.satisfied {
+      border: 10px solid rgba(0, 255, 51, 0.248);
+    }
   }
   &__last-fed {
     font-size: small;

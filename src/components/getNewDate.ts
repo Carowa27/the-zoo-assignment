@@ -1,11 +1,11 @@
 export const getNewDate = () => {
-  const newDate = new Date();
+  let getToday = new Date();
 
-  const year = newDate.getFullYear();
-  const month = newDate.getMonth();
-  const day = newDate.getDay();
-  const hour = newDate.getHours();
-  const minutes = newDate.getMinutes();
+  const year = getToday.getFullYear();
+  const month = getToday.getMonth();
+  const day = getToday.getDay();
+  const hour = getToday.getHours();
+  const minutes = getToday.getMinutes();
   const lastFed =
     year +
     "-" +
@@ -20,5 +20,6 @@ export const getNewDate = () => {
     ":" +
     (minutes < 10 ? "0" : "") +
     minutes;
+
   return lastFed;
 };

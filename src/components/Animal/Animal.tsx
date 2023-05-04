@@ -55,7 +55,7 @@ export const Animal = ({
               className={
                 allAnimals[id - 1].isFed
                   ? "animal__img satisfied"
-                  : "animal__img"
+                  : "animal__img hungry"
               }
               src={imageUrl}
               alt={name}
