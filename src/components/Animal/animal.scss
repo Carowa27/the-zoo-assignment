@@ -7,8 +7,8 @@
   }
   &__wrapper {
     width: 60vw;
-    // min-height: min-content;
-    height: 30rem;
+    height: fit-content; //30rem;
+    // min-height: fit-content;
     border-radius: 1rem;
     padding: 1rem;
     display: flex;
@@ -16,7 +16,7 @@
 
     &--img {
       width: 100%;
-      height: 30%;
+      height: 40vh;
       display: flex;
       justify-content: center;
     }
