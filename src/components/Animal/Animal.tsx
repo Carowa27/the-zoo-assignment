@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IAnimal } from "../../models/IAnimal";
 import "./animal.scss";
-import { FeedBtn } from "../FeedBtn/FeedBtn";
+import { getNewDate } from "../getNewDate";
 
 export const Animal = ({
   id,
@@ -18,6 +18,8 @@ export const Animal = ({
   const [allAnimals, setAllAnimals] = useState<IAnimal[]>(
     JSON.parse(localStorage.getItem("savedAnimalList") || JSON.stringify([]))
   );
+  //ändra att loopa lista fr LS och inte loader!!!
+
   const feedAnimal = (id: number) => {
     //ta in lista
     let newAnimalList = [...allAnimals];
@@ -33,10 +35,10 @@ export const Animal = ({
         } else {
           //isFed till true
           newAnimalList[i].isFed = true;
+          newAnimalList[i].lastFed = getNewDate().toString();
           //uppdatera tid
           console.log("update time");
           setAllAnimals(newAnimalList);
-          console.log(allAnimals);
           console.log(newAnimalList[i].isFed);
         }
       }
@@ -50,7 +52,11 @@ export const Animal = ({
           <h2 className="animal__name">{name}</h2>
           <div className="animal__wrapper--img">
             <img
-              className="animal__img starved"
+              className={
+                allAnimals[id - 1].isFed
+                  ? "animal__img satisfied"
+                  : "animal__img"
+              }
               src={imageUrl}
               alt={name}
               onError={(e) => {
@@ -72,7 +78,7 @@ export const Animal = ({
             <p>{longDescription}</p>
           </div>
           <div className="animal__wrapper--feed-section">
-            <p className="animal__last-fed">{lastFed}</p>
+            <p className="animal__last-fed">{allAnimals[id - 1].lastFed}</p>
             {/* <FeedBtn></FeedBtn> */}
             <div
               onClick={(e) => {

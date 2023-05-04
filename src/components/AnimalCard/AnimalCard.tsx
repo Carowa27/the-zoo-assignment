@@ -15,7 +15,10 @@ export const AnimalCard = ({
 }: IAnimal) => {
   return (
     <>
-      <article className="animals__wrapper starved" key={id}>
+      <article
+        className={isFed ? "animals__wrapper satisfied" : "animals__wrapper"}
+        key={id}
+      >
         <h3 className="animals__name">{name}</h3>
         <div className="animals__wrapper--img">
           <img
