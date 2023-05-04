@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router";
-import { Navbar } from "../components/Navbar";
+import "./pages.scss";
+import { Navbar } from "../components/Navbar/Navbar";
 import { Loader } from "../loaders/zooLoader";
 import { Animal } from "../components/Animal/Animal";
 

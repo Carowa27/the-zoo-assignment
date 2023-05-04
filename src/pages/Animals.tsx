@@ -1,7 +1,7 @@
-import { Navbar } from "../components/Navbar";
+import { Navbar } from "../components/Navbar/Navbar";
 import { AnimalCard } from "../components/AnimalCard/AnimalCard";
 import { Link } from "react-router-dom";
-import "./animals.scss";
+import "./pages.scss";
 import { useEffect, useState } from "react";
 import { getAnimals } from "../services/animalService";
 import { IAnimal } from "../models/IAnimal";
