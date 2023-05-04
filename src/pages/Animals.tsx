@@ -1,7 +1,6 @@
 import { Navbar } from "../components/Navbar";
 import { AnimalCard } from "../components/AnimalCard/AnimalCard";
-import { Link, useLoaderData } from "react-router-dom";
-import { Loader } from "../loaders/zooLoader";
+import { Link } from "react-router-dom";
 import "./animals.scss";
 import { useEffect, useState } from "react";
 import { getAnimals } from "../services/animalService";
@@ -19,8 +18,6 @@ export const Animals = () => {
     }
     // updateAnimals();
   }, []);
-  // const { animals } = useLoaderData() as Loader;
-  // console.log(animals);
 
   return (
     <>

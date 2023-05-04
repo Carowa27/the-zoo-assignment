@@ -18,25 +18,17 @@ export const Animal = ({
   const [allAnimals, setAllAnimals] = useState<IAnimal[]>(
     JSON.parse(localStorage.getItem("savedAnimalList") || JSON.stringify([]))
   );
-  //ändra att loopa lista fr LS och inte loader!!!
 
   const feedAnimal = (id: number) => {
-    //ta in lista
     let newAnimalList = [...allAnimals];
     console.log(newAnimalList);
     for (let i = 0; i < newAnimalList.length; i++) {
-      //hitta klickat djur
       if (newAnimalList[i].id === id) {
-        console.log("here I am");
-        console.log(newAnimalList[i]);
         if (newAnimalList[i].isFed === true) {
-          //om isFed är true, kan ej matas o updatera tid
           console.log("Already fed");
         } else {
-          //isFed till true
           newAnimalList[i].isFed = true;
           newAnimalList[i].lastFed = getNewDate().toString();
-          //uppdatera tid
           console.log("update time");
           setAllAnimals(newAnimalList);
           console.log(newAnimalList[i].isFed);
@@ -78,7 +70,9 @@ export const Animal = ({
             <p>{longDescription}</p>
           </div>
           <div className="animal__wrapper--feed-section">
-            <p className="animal__last-fed">{allAnimals[id - 1].lastFed}</p>
+            <p className="animal__last-fed">
+              Last fed: {allAnimals[id - 1].lastFed}
+            </p>
             {/* <FeedBtn></FeedBtn> */}
             <div
               onClick={(e) => {

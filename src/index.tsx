@@ -19,7 +19,6 @@ const router = createBrowserRouter([
     path: "/animals",
     element: <Animals></Animals>,
     errorElement: <Error></Error>,
-    loader: zooLoader,
   },
   {
     path: "/animals/:id",

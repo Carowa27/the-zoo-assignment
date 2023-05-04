@@ -6,14 +6,15 @@ export const updateAnimals = () => {
   );
   if (animals.length === 0 || null) {
     console.error("your list is empty or does not exist");
+  } else {
+    for (let i = 0; i < animals.length; i++) {
+      const aniFeed = animals[i].lastFed;
+      const today = new Date();
+      const hour = today.getHours;
+      console.log(aniFeed);
+    }
   }
-  //loop
-  
-  for (let i = 0; i < animals.length; i++) {
-    if(animals[i].lastFed)
-    
-  }
-  
+
   //om tid = gått mer än 3 tim
   //isFed = false
   //ram = orange
